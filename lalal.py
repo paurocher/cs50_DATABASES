@@ -1,2 +1,0 @@
-def actaf():
-    print("gluglu")
