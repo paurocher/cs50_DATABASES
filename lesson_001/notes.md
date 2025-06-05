@@ -56,3 +56,45 @@ SELECT "title FROM "books" WHERE "id" IN (
     )
 );
 ```
+
+### JOIN
+Combines tables.
+
+```sqlite3 sea_lions.db
+.tables
+```
+
+```
+SELECT * FROM "sea_lions";
+SELECT * FROM "migrations";
+```
+
+```
+SELECT * FROM "sea_lions"
+JOIN "migrations" ON "migrations"."id" = "sea_lions"."id";
+```
+
+#### INNER JOIN
+This is the usual JOIN.
+Rows from both tables that do not have a match are dropped: if we are joining by id, if some ids from table a do not exist on table b (and vice versa) all those rows are not shown.
+
+#### LEFT JOIN, RIGHT JOIN, FULL JOIN
+Prioritises the table A, the B or both.
+
+Left join gives prio to the first table provided. If there are rows that do not corresponf on the B table, they still are shown:
+```
+SELECT * FROM "sea_lions"
+LEFT JOIN "migrations" ON "migrations"."id" = "sea_lions"."id";
+```
+
+Right join does the opposite:
+```
+SELECT * FROM "sea_lions"
+RIGHT JOIN "migrations" ON "migrations"."id" = "sea_lions;
+```
+
+FULL JOIN will show everything, even the rows without match on both tables:
+```
+SELECT * FROM "sea_lions"
+FULL JOIN "migrations" ON "migrations"."id" = "sea_lions";
+```
