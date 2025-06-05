@@ -98,3 +98,12 @@ FULL JOIN will show everything, even the rows without match on both tables:
 SELECT * FROM "sea_lions"
 FULL JOIN "migrations" ON "migrations"."id" = "sea_lions";
 ```
+
+#### NATURAL JOIN
+Will figure out how to join tables based on the data it finds exist on both tables. Drops the unmatched rows.
+```
+SELECT * FROM "sea_lions"
+NATURAL JOIN "migrations";
+```
+
+video: 1:18:57
